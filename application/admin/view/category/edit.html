@@ -1,0 +1,30 @@
+{include file="public/_meta" /}
+<!--包含头部文件-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="page-container">
+	<form class="form form-horizontal form-o2o-add" id="form-o2o-add" method="post" action="{:url('category/save')}">
+		<div class="form-group">
+			<label for="exampleFormControlInput1">生活服务分类名称：</label>
+			<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="name" value="{$category->name}" >
+		</div>
+		<div class="form-group">
+			<label for="exampleFormControlSelect1">分类栏目</label>
+			<select class="form-control" id="exampleFormControlSelect1" name="parent_id">
+				<option  value="0">一级分类</option>
+				{volist name="categorys" id="vo"};
+				<option value="{$vo.id}" {if condition="$vo.id eq $category->parent_id" } selected="selected"{/if}>{$vo.name}</option>
+				{/volist}
+			</select>
+		</div>
+		<div class="row cl">
+			<input type="hidden" name="id" value="{$category->id}">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button  type="submit" class="btn btn-primary radius" ><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+	</form>
+
+<!--包含头部文件-->
+{include file="public/_footer" /}
