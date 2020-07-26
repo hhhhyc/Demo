@@ -2,10 +2,10 @@
 /**
  * 用法：
  * load_trait('controller/Jump');
- * class Index
+ * class index
  * {
  *     use \traits\controller\Jump;
- *     public function Index(){
+ *     public function index(){
  *         $this->error();
  *         $this->redirect();
  *     }
@@ -34,7 +34,7 @@ trait Jump
      * @return void
      * @throws HttpResponseException
      */
-    protected function success($msg = '', $url = null, $data = '', $wait = 1, array $header = [])
+    protected function success($msg = '', $url = null, $data = '', $wait = 3, array $header = [])
     {
         if (is_null($url) && !is_null(Request::instance()->server('HTTP_REFERER'))) {
             $url = Request::instance()->server('HTTP_REFERER');

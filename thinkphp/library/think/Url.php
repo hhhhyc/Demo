@@ -136,7 +136,7 @@ class Url
             // 添加参数
             if (Config::get('url_common_param')) {
                 $vars = http_build_query($vars);
-                $url .= $suffix . '&' . $vars . $anchor;
+                $url .= $suffix . '?' . $vars . $anchor;
             } else {
                 $paramType = Config::get('url_param_type');
                 foreach ($vars as $var => $val) {
@@ -156,7 +156,7 @@ class Url
         // 检测域名
         $domain = self::parseDomain($url, $domain);
         // URL组装
-        $url = $domain . rtrim(self::$root ?: Request::instance()->root(), '/') . ltrim($url, '/');
+        $url = $domain . rtrim(self::$root ?: Request::instance()->root(), '/') . '/' . ltrim($url, '/');
 
         self::$bindCheck = false;
         return $url;
@@ -239,7 +239,7 @@ class Url
         $rootDomain = Config::get('url_domain_root');
         if (true === $domain) {
             // 自动判断域名
-            $domain = Config::get('app_host') ?: $request->host(true);
+            $domain = Config::get('app_host') ?: $request->host();
 
             $domains = Route::rules('domain');
             if ($domains) {

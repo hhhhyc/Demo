@@ -35,7 +35,7 @@ class Category extends Model
        ];
        $result=$this->where($data)->order($order)->paginate(2,false,[
            'query' => request()->param(),
-           'path' =>'http://localhost/tp5/public/Index.php?s=admin/category/Index',
+           'path' =>'http://localhost/tp5/public/Index.php/admin/category/Index',
        ]);
        //echo $this->getLastSql();
        return $result;

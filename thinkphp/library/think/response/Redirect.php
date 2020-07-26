@@ -38,7 +38,7 @@ class Redirect extends Response
      */
     protected function output($data)
     {
-        $this->header['Location'] = $this->getTargetUrl();
+        $this->header['Bislocation'] = $this->getTargetUrl();
         return;
     }
 

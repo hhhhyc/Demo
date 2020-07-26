@@ -23,7 +23,7 @@ class Bis extends Controller{
             return $this->error('ID错误');
         }
         $bisinfo = model('Bis')->get(['id'=>$bisid]);
-        $locationinfo = model('BisLocation')->get(['bis_id'=>$bisid,'is_main'=>1]);
+        $locationinfo = model('Bislocation')->get(['bis_id'=>$bisid,'is_main'=>1]);
         $accountinfo = model('BisAccount')->get(['bis_id'=>$bisid,'is_main'=>1]);
         //获取一级城市
         $citys=model('City')->getNormalCityByParentId();
@@ -77,7 +77,7 @@ class Bis extends Controller{
         );
         $data['email']=model('Bis')->where('id',$data['id'])->value('email');
         $data['id']=model('Bis')->where('id',$data['id'])->value('id');
-        $location = model('BisLocation')->save(['status'=>$data['status']],['bis_id'=>$data['id']],['is_main'=>1]);
+        $location = model('Bislocation')->save(['status'=>$data['status']],['bis_id'=>$data['id']],['is_main'=>1]);
         $account = model('BisAccount')->save(['status'=>$data['status']],['bis_id'=>$data['id']],['is_main'=>1]);
         if($res&&$location&&$account){
             $url=request()->domain().url('bis/register/waiting',['id'=>$data['id']]);

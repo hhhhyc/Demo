@@ -21,7 +21,7 @@ class Featured extends Model
         ];
         return $this->where($data)->order($order)->paginate(2, false, [
             'query' => request()->param(),
-            'path' => 'http://localhost/tp5/public/Index.php?s=admin/featured/Index.html',
+            'path' => 'http://localhost/tp5/public/Index.php/admin/featured/Index',
         ]);
     }
 

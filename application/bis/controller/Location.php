@@ -11,10 +11,10 @@ class Location extends Base
         //根据登录用户得到session中提取bis_id，进行查询
         $user = $this->getLoginUser();
 
-        $location = model('BisLocation')->getLocationById($user->bis_id);
+        $location = model('Bislocation')->getLocationById($user->bis_id);
 
         return $this->fetch('', [
-            'location' => $location,
+            'bislocation' => $location,
         ]);
     }
 
@@ -50,10 +50,10 @@ class Location extends Base
                 'open_time' => $data['open_time'],
                 'content' => empty($data['content']) ? '' : $data['content'],
                 'is_main' => 0, //代表分店信息
-                'xpoint' => empty($lnglat['result']['location']['lng'] ? '' : $lnglat['result']['location']['lng']),
-                'ypoint' => empty($lnglat['result']['location']['lat'] ? '' : $lnglat['result']['location']['lat']),
+                'xpoint' => empty($lnglat['result']['bislocation']['lng'] ? '' : $lnglat['result']['bislocation']['lng']),
+                'ypoint' => empty($lnglat['result']['bislocation']['lat'] ? '' : $lnglat['result']['bislocation']['lat']),
             ];
-            $locationId = model('BisLocation')->add($locationData);
+            $locationId = model('Bislocation')->add($locationData);
             if ($locationId) {
                 return $this->success('门店申请成功');
             } else {
@@ -78,7 +78,7 @@ class Location extends Base
 //        if(!$validate->scene('status')->check($data)){
 //            $this->error($validate->getError());
 //        }
-        $res=model('BisLocation')->save(
+        $res=model('Bislocation')->save(
             [
                 'status'=>$data['status'],
             ],

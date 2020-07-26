@@ -13,7 +13,7 @@
 return [
     // 系统错误提示
     'Undefined variable'                                        => '未定义变量',
-    'Undefined Index'                                           => '未定义数组索引',
+    'Undefined index'                                           => '未定义数组索引',
     'Undefined offset'                                          => '未定义数组下标',
     'Parse error'                                               => '语法解析错误',
     'Type error'                                                => '类型错误',
@@ -48,6 +48,7 @@ return [
     'KVDB init error'                                           => '没有初始化KVDB，请在SAE管理平台初始化KVDB服务',
     'fields not exists'                                         => '数据表字段不存在',
     'where express error'                                       => '查询表达式错误',
+    'not support data'                                          => '不支持的数据表达式',
     'no data to update'                                         => '没有任何数据需要更新',
     'miss data to insert'                                       => '缺少需要写入的数据',
     'miss complex primary data'                                 => '缺少复合主键数据',

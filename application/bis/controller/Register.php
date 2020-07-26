@@ -82,10 +82,10 @@ class Register extends Controller{
              'open_time'=>$data['open_time'],
             'content'=>empty($data['content'])?'':$data['content'],
             'is_main'=>1, //代表总店信息
-            'xpoint'=>empty($lnglat['result']['location']['lng']?'':$lnglat['result']['location']['lng']),
-            'ypoint'=>empty($lnglat['result']['location']['lat']?'':$lnglat['result']['location']['lat']),
+            'xpoint'=>empty($lnglat['result']['bislocation']['lng']?'':$lnglat['result']['bislocation']['lng']),
+            'ypoint'=>empty($lnglat['result']['bislocation']['lat']?'':$lnglat['result']['bislocation']['lat']),
         ];
-        $locationId = model('BisLocation')->add($locationData);
+        $locationId = model('Bislocation')->add($locationData);
 
         //自动生成密码加严
         $data['code']=mt_rand(100,10000);

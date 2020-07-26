@@ -3,7 +3,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 
-class Location extends Controller{
+class Bislocation extends Base {
     /**
      * @return string
      * 管理员下管理商户的门店列表

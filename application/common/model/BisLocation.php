@@ -33,7 +33,7 @@ class BisLocation extends Model{
         ];
         return $this->where($data)->order($order)->paginate(10,false,[
             'query'=>request()->param(),
-            'path'=>'http://localhost/tp5/public/Index.php?s=admin/location/apply',
+            'path'=>'http://localhost/tp5/public/Index.php/admin/bislocation/apply',
         ]);
     }
 

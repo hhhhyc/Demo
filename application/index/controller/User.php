@@ -13,7 +13,6 @@ class User extends Controller
             $this->redirect(url('Index/Index'));
         }
         return $this->fetch();
-
     }
 
     public function register()

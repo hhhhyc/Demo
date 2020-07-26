@@ -87,7 +87,7 @@ class App
             } elseif ($config['auto_bind_module']) {
                 // 入口自动绑定
                 $name = pathinfo($request->baseFile(), PATHINFO_FILENAME);
-                if ($name && 'Index' != $name && is_dir(APP_PATH . $name)) {
+                if ($name && 'index' != $name && is_dir(APP_PATH . $name)) {
                     Route::bind($name);
                 }
             }
@@ -551,6 +551,11 @@ class App
 
         // 获取控制器名
         $controller = strip_tags($result[1] ?: $config['default_controller']);
+
+        if (!preg_match('/^[A-Za-z](\w|\.)*$/', $controller)) {
+            throw new HttpException(404, 'controller not exists:' . $controller);
+        }
+
         $controller = $convert ? strtolower($controller) : $controller;
 
         // 获取操作名

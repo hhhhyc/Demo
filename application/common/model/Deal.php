@@ -78,7 +78,7 @@ class Deal extends Model{
         }
         $datas[]='status=1';
         $result = $this->where(implode(' AND ',$datas))->order($order)->paginate(1,false,[
-            'path'=>'http://localhost/tp5/public/Index.php?s=Index/lists/Index.html',
+            'path'=>'http://localhost/tp5/public/Index.php/Index/lists/Index',
             'query'=>request()->param(),
         ]);
 //        echo $this->getLastSql();exit;

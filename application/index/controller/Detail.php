@@ -11,8 +11,9 @@ class Detail extends Base {
         }
         //根据ID查询商品数据
         $deal = model('Deal')->get($id);
+//        print_r($deal);exit();
         $category = model('Category')->get($deal->category_id);
-        $location = model('BisLocation')->getNormalLocationInId($deal->location_ids);
+        $location = model('Bislocation')->getNormalLocationInId($deal->location_ids);
         global $timedata;
         $flag=0;
         $time=time();
@@ -26,7 +27,7 @@ class Detail extends Base {
             'deal'=>$deal,
             'title'=>$deal['name'],
             'category'=>$category,
-            'location'=>$location,
+            'bislocation'=>$location,
             'timedata'=>$timedata,
             'overplus'=>$deal->total_count-$deal->buy_count,
             'flag'=>$flag,

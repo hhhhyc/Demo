@@ -24,7 +24,7 @@ class Bis extends Model {
       $res = $this->where($data)->order($order)->paginate(2,false,
           [
               'query'=>request()->param(),
-              'path' =>'http://localhost/tp5/public/Index.php?s=admin/bis/apply',
+              'path' =>'http://localhost/tp5/public/Index.php/admin/bis/apply',
           ]);
 
        return $res;
@@ -39,7 +39,7 @@ class Bis extends Model {
         ];
         $res = $this->where($data)->order($order)->paginate(5,false,[
            'query'=>request()->param(),
-            'path'=>'http://localhost/tp5/public/Index.php?s=admin/bis/Index',
+            'path'=>'http://localhost/tp5/public/Index.php/admin/bis/Index',
         ]);
         return $res;
     }
@@ -53,7 +53,7 @@ class Bis extends Model {
         ];
         $res = $this->where($data)->order($order)->paginate(5,false,[
             'query'=>request()->param(),
-            'path'=>'http://localhost/tp5/public/Index.php?s=admin/bis/Index',
+            'path'=>'http://localhost/tp5/public/Index.php/admin/bis/Index',
         ]);
         return $res;
     }

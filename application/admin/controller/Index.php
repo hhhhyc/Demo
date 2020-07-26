@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\controller;
 
+use Map;
 use think\Controller;
 
 class Index extends Controller{
@@ -17,6 +18,6 @@ class Index extends Controller{
       print_r(\Map::getLngLat('北京沙河地铁'));
     }
     public function map(){
-        return  \Map::staticimage('北京沙河地铁');
+        return  \Map::staticimage('高埗交警大队');
     }
 }

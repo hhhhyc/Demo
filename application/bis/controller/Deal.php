@@ -15,7 +15,7 @@ class Deal extends Base {
         $bisid=$this->getLoginUser()->bis_id;
         if(request()->isPost()){
             $data=input('post.');
-            $location = model('BisLocation')->get($data['location_ids'][0]);
+            $location = model('Bislocation')->get($data['location_ids'][0]);
             $deals=[
               'bis_id'=>$bisid,
               'name'=>$data['name'],
@@ -34,8 +34,8 @@ class Deal extends Base {
                 'notes'=>$data['notes'],
                 'description'=>$data['description'],
                 'bis_account_id'=>$this->getLoginUser()->id,
-//               'xpoint'=>$location->xpoint,
-//               'ypoint'=>$location->ypoint,
+//               'xpoint'=>$bislocation->xpoint,
+//               'ypoint'=>$bislocation->ypoint,
 
             ];
            $id = model('Deal')->add($deals);
@@ -54,7 +54,7 @@ class Deal extends Base {
         return $this->fetch('',[
             'citys'=>$citys,
             'category'=>$category,
-            'bislocation'=>model('BisLocation')->getLocationByBisId($bisid),
+            'bislocation'=>model('Bislocation')->getLocationByBisId($bisid),
         ]);
     }
 }
